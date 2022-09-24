@@ -124,19 +124,19 @@ Ben Momeni
 
 ##Milestones 
 
-[Milestone 0] (https://github.com/brennerdanae/CachingIn/milestone/1) 
+[Milestone 0](https://github.com/brennerdanae/CachingIn/milestone/1) 
 
-[Milestone 1] (https://github.com/brennerdanae/CachingIn/milestone/2) 
+[Milestone 1](https://github.com/brennerdanae/CachingIn/milestone/2) 
 
-[Milestone 2] (https://github.com/brennerdanae/CachingIn/milestone/3) 
+[Milestone 2](https://github.com/brennerdanae/CachingIn/milestone/3) 
 
-[Milestone 3] (https://github.com/brennerdanae/CachingIn/milestone/4) 
+[Milestone 3](https://github.com/brennerdanae/CachingIn/milestone/4) 
 
   
 
 ##Projects 
 
-[Projects in Github] (https://github.com/brennerdanae/CachingIn/projects) 
+[Projects in Github](https://github.com/brennerdanae/CachingIn/projects) 
 
   
 
