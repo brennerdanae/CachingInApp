@@ -1,7 +1,10 @@
 package com.cachinginapp.enterprise;
 
+import com.cachinginapp.enterprise.dto.Cache;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class CachingInController {
@@ -14,6 +17,26 @@ public class CachingInController {
     @RequestMapping("/")
     public String index() {
         return "start";
+    }
+
+    @GetMapping("/cache")
+    public ResponseEntity fetchAllCaches(){
+        return new ResponseEntity(HttpStatus.OK);
+    }
+
+    @GetMapping("/cache/id/")
+    public ResponseEntity fetchCacheById(@PathVariable("id") String id){
+        return new ResponseEntity(HttpStatus.OK);
+    }
+
+    @PostMapping(value="/cache", consumes="application/json", produces="application/json")
+    public Cache createCache(@RequestBody("@RequestBody Cache cache){
+        return cache;
+    }
+
+    @DeleteMapping("/cache/id/")
+    public ResponseEntity deleteCache(@PathVariable("id") String id){
+        return new ResponseEntity(HttpStatus.OK);
     }
 
 }
