@@ -64,11 +64,11 @@ As a geocacher, I want to be able to keep a list of the cache points that I have
 
 ## UML Class Diagram 
 
-<Insert Class Diagram> 
+![CachedInClassDiagram drawio](https://user-images.githubusercontent.com/89750463/192156031-d587791d-11f5-488f-bd72-293173a1ae74.png)
 
 ### Class Diagram Description 
 
-<Insert Class Diagram Description> 
+This class diagram shows the relationships between our DAO, our service, and the controller. Additional services may be added throughout the development process.
 
 ## JSON Schema 
 
