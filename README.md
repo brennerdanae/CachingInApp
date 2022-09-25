@@ -88,7 +88,7 @@ This is what we plan to export to another app
 
   
 
-##Github Project Link 
+## Github Project Link 
 
 https://github.com/brennerdanae/CachingInApp 
 
@@ -132,6 +132,6 @@ Ben Momeni
 
 ## Standup 
 
-[Sunday at 12pm] (https://teams.microsoft.com/l/meetup-join/19%3ameeting_YTZkODZmNTItNGRhMS00ZWZkLWJmMWEtOWMyMzBlMjgzZmI1%40thread.v2/0?context=%7b%22Tid%22%3a%22f5222e6c-5fc6-48eb-8f03-73db18203b63%22%2c%22Oid%22%3a%224cdc4a8a-a374-4ac6-9848-6269cd8e320f%22%7d) 
+[Sunday at 12pm](https://teams.microsoft.com/l/meetup-join/19%3ameeting_YTZkODZmNTItNGRhMS00ZWZkLWJmMWEtOWMyMzBlMjgzZmI1%40thread.v2/0?context=%7b%22Tid%22%3a%22f5222e6c-5fc6-48eb-8f03-73db18203b63%22%2c%22Oid%22%3a%224cdc4a8a-a374-4ac6-9848-6269cd8e320f%22%7d) 
 
  
