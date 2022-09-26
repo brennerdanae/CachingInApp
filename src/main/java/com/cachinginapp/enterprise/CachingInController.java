@@ -30,7 +30,7 @@ public class CachingInController {
     }
 
     @PostMapping(value="/cache", consumes="application/json", produces="application/json")
-    public Cache createCache(@RequestBody("@RequestBody Cache cache){
+    public Cache createCache(@RequestBody Cache cache){
         return cache;
     }
 
