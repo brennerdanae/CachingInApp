@@ -19,22 +19,22 @@ public class CachingInController {
         return "start";
     }
 
-    @GetMapping("/cache")
+    @GetMapping("/cache/")
     public ResponseEntity fetchAllCaches(){
         return new ResponseEntity(HttpStatus.OK);
     }
 
-    @GetMapping("/cache/id/")
+    @GetMapping("/cache/{id}/")
     public ResponseEntity fetchCacheById(@PathVariable("id") String id){
         return new ResponseEntity(HttpStatus.OK);
     }
 
-    @PostMapping(value="/cache", consumes="application/json", produces="application/json")
+    @PostMapping(value="/cache/", consumes="application/json", produces="application/json")
     public Cache createCache(@RequestBody Cache cache){
         return cache;
     }
 
-    @DeleteMapping("/cache/id/")
+    @DeleteMapping("/cache/{id}/")
     public ResponseEntity deleteCache(@PathVariable("id") String id){
         return new ResponseEntity(HttpStatus.OK);
     }
