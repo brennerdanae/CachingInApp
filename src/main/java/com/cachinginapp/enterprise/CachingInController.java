@@ -25,7 +25,7 @@ public class CachingInController {
     }
 
     @GetMapping("/cache/{id}/")
-    public ResponseEntity fetchCacheById(@PathVariable("id") String id){
+    public ResponseEntity fetchCacheById(@PathVariable("id") int id){
         return new ResponseEntity(HttpStatus.OK);
     }
 
@@ -35,7 +35,7 @@ public class CachingInController {
     }
 
     @DeleteMapping("/cache/{id}/")
-    public ResponseEntity deleteCache(@PathVariable("id") String id){
+    public ResponseEntity deleteCache(@PathVariable("id") int id){
         return new ResponseEntity(HttpStatus.OK);
     }
 
