@@ -19,20 +19,40 @@ public class CachingInController {
         return "start";
     }
 
+    /**
+     * Fetches all caches that have been saved
+     * @return HTTP Status Code 200
+     */
+
     @GetMapping("/cache/")
     public ResponseEntity fetchAllCaches(){
         return new ResponseEntity(HttpStatus.OK);
     }
+
+    /**
+     * Fetches a cache using its ID
+     * @return HTTP Status Code 200
+     */
 
     @GetMapping("/cache/{id}/")
     public ResponseEntity fetchCacheById(@PathVariable("id") int id){
         return new ResponseEntity(HttpStatus.OK);
     }
 
+    /**
+     * Creates a new cache by consuming JSON
+     * @return The cache that was just created
+     */
+
     @PostMapping(value="/cache/", consumes="application/json", produces="application/json")
     public Cache createCache(@RequestBody Cache cache){
         return cache;
     }
+
+    /**
+     * Deletes a cache by using its ID
+     * @return HTTP Status Code 200
+     */
 
     @DeleteMapping("/cache/{id}/")
     public ResponseEntity deleteCache(@PathVariable("id") int id){
