@@ -1,13 +1,19 @@
 package com.cachinginapp.enterprise;
 
 import com.cachinginapp.enterprise.dto.Cache;
+import com.cachinginapp.enterprise.service.ICacheService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class CachingInController {
+
+    @Autowired
+    private ICacheService cacheService;
 
     /**
      * Handle the root (/) endpoint and return a start page.
@@ -15,7 +21,13 @@ public class CachingInController {
      */
 
     @RequestMapping("/")
-    public String index() {
+    public String index(Model model) {
+        Cache cache = new Cache();
+        cache.setCacheID(11);
+        cache.setLatitude("90");
+        cache.setLatitude("100");
+        cache.setDescription("I am a cache :)");
+        model.addAttribute(cache);
         return "start";
     }
 
