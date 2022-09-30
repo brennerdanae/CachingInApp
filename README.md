@@ -40,6 +40,22 @@ As a geocacher, I want to be able to upload photos of the cache points that I ha
 
 **Then**: The photo of the cache point will be saved to the cache point with the coordinates and can be viewed later. 
 
+### Example
+
+**Given**: The user is selects a latitude(90) and a longitude(100) 
+
+**When**: The user selects a geo-cache point
+
+**Then**: The user’s/service’s cache point will be saved with the selected latitude/longitude.
+
+### Example
+
+**Given**: The user is selects a latitude(pizza) and a longitude(burgers)
+
+**When**: The user selects a geo-cache point that is invalid
+
+**Then**: The application will throw an error and ask for the user to reenter their location
+
 ### Example 
 
 Possibly set a limit to the photo size or resize all photos to a set size. 
@@ -76,21 +92,26 @@ This is what we plan to export to another app
 
 >{ 
 >  "type" : "object", 
->  "properties" : { 
+>  "properties" : {
+>    "cacheID" : {
+>      "type" : "int"
+>    },
 >    "latitude" : { 
 >      "type" : "string" 
 >    }, 
 >    "longitude" : { 
 >      "type" : "string" 
 >    } 
->  } 
+>  "description" : {
+>      "type" : "string"
+>    }
 >} 
 
   
 
 ## Github Project Link 
 
-https://github.com/brennerdanae/CachingInApp 
+[CachingInApp](https://github.com/brennerdanae/CachingInApp) 
 
   
 
