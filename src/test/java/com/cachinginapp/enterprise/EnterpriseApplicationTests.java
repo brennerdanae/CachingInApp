@@ -10,4 +10,8 @@ class EnterpriseApplicationTests {
 	void contextLoads() {
 	}
 
+	@Autowired
+	private ICacheService cacheService;
+	private Cache cache;
+
 }

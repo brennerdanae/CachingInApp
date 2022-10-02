@@ -74,19 +74,23 @@ This class diagram shows the relationships between our DAO, our service, and the
 
 This is what we plan to export to another app 
 
->{ 
->  "type" : "object", 
->  "properties" : { 
->    "latitude" : { 
->      "type" : "string" 
->    }, 
->    "longitude" : { 
->      "type" : "string" 
->    } 
->  } 
->} 
+>{
+>  "type" : "object",
+>  "properties" : {
+>    "cacheID" : {
+>      "type" : "int"
+>    },
+>    "latitude" : {
+>      "type" : "string"
+>    },
+>    "longitude" : {
+>      "type" : "string"
+>    }
+>  "description" : {
+>      "type" : "string"
+>    }
+>}
 
-  
 
 ## Github Project Link 
 

@@ -11,7 +11,7 @@ public class CachingInController {
 
     /**
      * Handle the root (/) endpoint and return a start page.
-     * @return
+     *  @return This method returns an HTML page
      */
 
     @RequestMapping("/")
