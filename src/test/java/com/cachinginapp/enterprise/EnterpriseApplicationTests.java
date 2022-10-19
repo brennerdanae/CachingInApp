@@ -21,22 +21,21 @@ class EnterpriseApplicationTests {
 	}
 
 	@Test
-	void savePictureToCache_returnsCacheWithPicture() {
-		givenSavedCacheSelected();
-		whenUploadPhotoOfCache();
-		thenReturnCacheWithAddedPicture();
-
+	void fetchCacheByID_returnsMountainOverlookForID420() {
+		givenCacheDataAreAvailable();
+		whenSearchCacheWithID420();
+		thenReturnOneMountainOverlookCacheForID420();
 	}
 
-	private void givenSavedCacheSelected() {
+	private void givenCacheDataAreAvailable() {
 	}
 
-	private void whenUploadPhotoOfCache() {
-		cache = cacheService.fetchCacheById(63);
+	private void whenSearchCacheWithID420() {
+		cache = cacheService.fetchCacheById(420);
 	}
 
-	private void thenReturnCacheWithAddedPicture() {
+	private void thenReturnOneMountainOverlookCacheForID420() {
 		String description = cache.getDescription();
-		assertEquals("Filler description", description);
+		assertEquals("Mountain Overlook", description);
 	}
 }

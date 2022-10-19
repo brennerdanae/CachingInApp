@@ -9,8 +9,8 @@ public class ICacheServiceStub implements ICacheService
     @Override
     public Cache fetchCacheById(int cacheId) {
         Cache cache = new Cache();
-        cache.setDescription("Filler description");
-        cache.setCacheID(63);
-        return null;
+        cache.setDescription("Mountain Overlook");
+        cache.setCacheID(420);
+        return cache;
     }
 }
