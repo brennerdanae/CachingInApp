@@ -9,4 +9,7 @@ public interface ICacheService {
      * @return the matching cache, or none if found.
      */
     Cache fetchCacheById(int cacheId);
+
+    Cache save(Cache cache) throws Exception;
+
 }
