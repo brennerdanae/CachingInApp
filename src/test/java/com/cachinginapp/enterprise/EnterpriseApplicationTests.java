@@ -32,22 +32,7 @@ class EnterpriseApplicationTests {
 	@Test
 	void contextLoads() {
 	}
-	@Test
-	void fetchCacheByID_returnsMtAuburnForID83() throws Exception {
-		givenCacheDataAreAvailable();
-		whenSearchCacheWithID83();
-		thenReturnOneMtAuburnCacheForID83();
-	}
 
-
-	private void whenSearchCacheWithID83() {
-		cache = cacheService.fetchCacheById(83);
-	}
-
-	private void thenReturnOneMtAuburnCacheForID83() {
-		String description = cache.getDescription();
-		assertEquals("Mount Auburn", description);
-	}
 
 	@Test
 	void fetchCacheByID_returnsMountainOverlookForID420() throws Exception {
