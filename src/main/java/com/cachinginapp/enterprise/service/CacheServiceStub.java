@@ -3,6 +3,7 @@ package com.cachinginapp.enterprise.service;
 import com.cachinginapp.enterprise.dto.Cache;
 import org.springframework.stereotype.Component;
 
+
 @Component
 public class CacheServiceStub implements ICacheService{
     @Override
@@ -13,3 +14,4 @@ public class CacheServiceStub implements ICacheService{
         return cache;
     }
 }
+

@@ -12,23 +12,29 @@ As a geocacher, I want to be able to see a list of cache points that I can navig
 
 ### Example 
 
-  
-
 **Given**: A feed of geocache points data are available 
 
-  
-
-**When**: The user/service selects a particular cache point 
-
-  
+**When**: The user/service selects a particular cache point
 
 **When**: The user/service shows the latitude/longitude of said cache point 
 
-  
-
 **Then**: The user’s/service’s cache point will be saved with the correct latitude/longitude. 
 
-  
+### Example
+
+**Given**: The user is selects a latitude(90) and a longitude(100)
+
+**When**: The user selects a geo-cache point
+
+**Then**: The user’s/service’s cache point will be saved with the selected latitude/longitude.
+
+### Example
+
+**Given**: The user is selects a latitude(pizza) and a longitude(burgers)
+
+**When**: The user selects a geo-cache point that is invalid
+
+**Then**: The application will throw an error and ask for the user to reenter their location
 
 As a geocacher, I want to be able to upload photos of the cache points that I have found. 
 
@@ -46,19 +52,12 @@ Possibly set a limit to the photo size or resize all photos to a set size.
 
 As a geocacher, I want to be able to keep a list of the cache points that I have previously found. 
 
-  
 
-### Example 
-
-  
+### Example
 
 **Given**: The user has an account and cache points saved to their account. 
 
-  
-
 **When**: The user clicks their collection of cache points. 
-
-  
 
 **Then**: The user will see a list of the cache points, photos (if they have uploaded one), and the date/time that they found it.			 
 
@@ -74,23 +73,29 @@ This class diagram shows the relationships between our DAO, our service, and the
 
 This is what we plan to export to another app 
 
->{ 
->  "type" : "object", 
->  "properties" : { 
->    "latitude" : { 
->      "type" : "string" 
->    }, 
->    "longitude" : { 
->      "type" : "string" 
->    } 
->  } 
->} 
+>{
+>  "type" : "object",
+>  "properties" : {
+>    "cacheID" : {
+>      "type" : "int"
+>    },
+>    "latitude" : {
+>      "type" : "string"
+>    },
+>    "longitude" : {
+>      "type" : "string"
+>    }
+>  "description" : {
+>      "type" : "string"
+>    }
+>}
+
 
   
 
 ## Github Project Link 
 
-https://github.com/brennerdanae/CachingInApp 
+[CachingInApp](https://github.com/brennerdanae/CachingInApp)
 
   
 
