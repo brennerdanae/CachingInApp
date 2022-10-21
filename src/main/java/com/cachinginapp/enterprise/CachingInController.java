@@ -12,7 +12,7 @@ public class CachingInController {
 
     /**
      * Handle the root (/) endpoint and return a start page.
-     * @return
+     * @return the page used as the index page
      */
 
     @RequestMapping("/")
@@ -26,23 +26,43 @@ public class CachingInController {
         return "start";
     }
 
-    @GetMapping("/cache")
+    /**
+     * Fetches all caches that have been saved
+     * @return HTTP Status Code 200
+     */
+
+    @GetMapping("/cache/")
     public ResponseEntity fetchAllCaches(){
         return new ResponseEntity(HttpStatus.OK);
     }
 
-    @GetMapping("/cache/id/")
-    public ResponseEntity fetchCacheById(@PathVariable("id") String id){
+    /**
+     * Fetches a cache using its ID
+     * @return HTTP Status Code 200
+     */
+
+    @GetMapping("/cache/{id}/")
+    public ResponseEntity fetchCacheById(@PathVariable("id") int id){
         return new ResponseEntity(HttpStatus.OK);
     }
 
-    @PostMapping(value="/cache", consumes="application/json", produces="application/json")
+    /**
+     * Creates a new cache by consuming JSON
+     * @return The cache that was just created
+     */
+
+    @PostMapping(value="/cache/", consumes="application/json", produces="application/json")
     public Cache createCache(@RequestBody Cache cache){
         return cache;
     }
 
-    @DeleteMapping("/cache/id/")
-    public ResponseEntity deleteCache(@PathVariable("id") String id){
+    /**
+     * Deletes a cache by using its ID
+     * @return HTTP Status Code 200
+     */
+
+    @DeleteMapping("/cache/{id}/")
+    public ResponseEntity deleteCache(@PathVariable("id") int id){
         return new ResponseEntity(HttpStatus.OK);
     }
 
