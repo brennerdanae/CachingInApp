@@ -7,6 +7,7 @@ import com.cachinginapp.enterprise.service.ICacheService;
 import com.mysql.cj.x.protobuf.MysqlxDatatypes;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
@@ -15,8 +16,11 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.atLeastOnce;
 import static org.mockito.Mockito.verify;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 @SpringBootTest
 class EnterpriseApplicationTests {
+
 
 	private ICacheService cacheService;
 	private Cache cache = new Cache();
@@ -24,8 +28,27 @@ class EnterpriseApplicationTests {
 	@MockBean
 	private ICacheDAO cacheDAO;
 
+
 	@Test
 	void contextLoads() {
+	}
+	@Test
+	void fetchCacheByID_returnsMtAuburnForID83(){
+		givenCacheDataAreAvailable();
+		whenSearchCacheWithID83();
+		thenReturnOneMtAuburnCacheForID83();
+	}
+
+	private void givenCacheDataAreAvailable() {
+	}
+
+	private void whenSearchCacheWithID83() {
+		cache = cacheService.fetchById(83);
+	}
+
+	private void thenReturnOneMtAuburnCacheForID83() {
+		String description = cache.getDescription();
+		assertEquals("Mount Auburn", description);
 	}
 
 	@Test

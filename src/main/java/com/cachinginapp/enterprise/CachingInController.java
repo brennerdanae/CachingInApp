@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -22,7 +23,13 @@ public class CachingInController {
      */
 
     @RequestMapping("/")
-    public String index() {
+    public String index(Model model) {
+        Cache cache = new Cache();
+        cache.setCacheID(84);
+        cache.setDescription("Eden Park Cache");
+        cache.setLatitude("39.74");
+        cache.setLongitude("-84.51");
+        model.addAttribute(cache);
         return "start";
     }
 
@@ -46,6 +53,7 @@ public class CachingInController {
             //TODO add logging
         }
         return newCache;
+
     }
 
     @DeleteMapping("/cache/id/")

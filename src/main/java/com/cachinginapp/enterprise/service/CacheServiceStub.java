@@ -37,4 +37,5 @@ public class CacheServiceStub implements ICacheService {
     public List<Cache> fetchAll() {
         return cacheDAO.fetchAll();
     }
+
 }

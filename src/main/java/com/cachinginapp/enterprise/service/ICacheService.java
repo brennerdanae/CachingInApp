@@ -2,6 +2,7 @@ package com.cachinginapp.enterprise.service;
 
 import com.cachinginapp.enterprise.dto.Cache;
 
+
 import java.util.List;
 
 public interface ICacheService {
@@ -15,4 +16,5 @@ public interface ICacheService {
     Cache save(Cache cache) throws Exception;
 
     List<Cache> fetchAll();
+
 }
