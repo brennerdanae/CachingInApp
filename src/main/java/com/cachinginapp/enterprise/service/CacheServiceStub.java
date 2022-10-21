@@ -1,15 +1,41 @@
 package com.cachinginapp.enterprise.service;
 
+import com.cachinginapp.enterprise.dao.ICacheDAO;
 import com.cachinginapp.enterprise.dto.Cache;
-import org.springframework.stereotype.Component;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
-@Component
-public class CacheServiceStub implements ICacheService{
+import java.util.List;
+
+@Service
+public class CacheServiceStub implements ICacheService {
+
+    @Autowired
+    private ICacheDAO cacheDAO;
+
+    public CacheServiceStub() {}
+
+    public CacheServiceStub(ICacheDAO cacheDAO) {
+
+        this.cacheDAO = cacheDAO;
+    }
+
     @Override
-    public Cache fetchById(int id) {
+    public Cache fetchCacheById(int cacheId) {
         Cache cache = new Cache();
-        cache.setDescription("Mount Auburn");
-        cache.setCacheID(83);
+        cache.setDescription("Mountain Overlook");
+        cache.setCacheID(420);
         return cache;
     }
+
+    @Override
+    public Cache save(Cache cache) throws Exception{
+        return cacheDAO.save(cache);
+    }
+
+    @Override
+    public List<Cache> fetchAll() {
+        return cacheDAO.fetchAll();
+    }
+
 }
