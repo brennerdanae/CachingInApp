@@ -72,4 +72,10 @@ public class CachingInController {
         return new ResponseEntity(HttpStatus.OK);
     }
 
+
+    @GetMapping("/cachepoints")
+    public ResponseEntity searchCaches(@RequestParam(value="searchTerm", required = false, defaultValue ="None") String searchTerm){
+
+        return new ResponseEntity(HttpStatus.OK);
+    }
 }
