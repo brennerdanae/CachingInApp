@@ -27,10 +27,10 @@ public class CachingInController {
     @RequestMapping("/")
     public String index(Model model) {
         Cache cache = new Cache();
-        cache.setCacheID(11);
-        cache.setLatitude("90");
-        cache.setLongitude("100");
-        cache.setDescription("I am a cache :)");
+        cache.setCacheID(84);
+        cache.setDescription("Eden Park Cache");
+        cache.setLatitude("39.74");
+        cache.setLongitude("-84.51");
         model.addAttribute(cache);
         return "start";
     }
