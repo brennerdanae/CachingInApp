@@ -33,6 +33,11 @@ public class CachingInController {
         return "start";
     }
 
+    @RequestMapping("/map")
+    public String map() {
+        return "map";
+    }
+
     @RequestMapping("/saveCache")
     public String saveCache(Cache cache){
         try {
