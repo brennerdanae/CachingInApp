@@ -7,5 +7,13 @@
 <body>
 Geo-caching all over the world!
 <p th:text="${cache}" />
+
+<form action="#" th:action="@{/saveCache}" th:object="${cache}" method="GET"><br />
+    <label>Latitude</label><input type="text" name="latitude" th:field="*{latitude}"><br />
+    <label>Longitude</label><input type="text" name="longitude" th:field="*{longitude}"><br />
+    <label>Description</label><input type="text" name="description" th:field="*{description}"><br />
+    <label>Cache</label><input type="text" name="cacheID" th:field="*{cacheID}"><br />
+    <button name=submit" type="submit" value="0">Submit</button>
+</form>
 </body>
 </html>

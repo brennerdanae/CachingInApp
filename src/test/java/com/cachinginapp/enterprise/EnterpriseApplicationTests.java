@@ -33,17 +33,15 @@ class EnterpriseApplicationTests {
 	void contextLoads() {
 	}
 	@Test
-	void fetchCacheByID_returnsMtAuburnForID83(){
+	void fetchCacheByID_returnsMtAuburnForID83() throws Exception {
 		givenCacheDataAreAvailable();
 		whenSearchCacheWithID83();
 		thenReturnOneMtAuburnCacheForID83();
 	}
 
-	private void givenCacheDataAreAvailable() {
-	}
 
 	private void whenSearchCacheWithID83() {
-		cache = cacheService.fetchById(83);
+		cache = cacheService.fetchCacheById(83);
 	}
 
 	private void thenReturnOneMtAuburnCacheForID83() {

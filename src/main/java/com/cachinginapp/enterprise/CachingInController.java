@@ -33,6 +33,17 @@ public class CachingInController {
         return "start";
     }
 
+    @RequestMapping("/saveCache")
+    public String saveCache(Cache cache){
+        try {
+            cacheService.save(cache);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return "start";
+        }
+        return "start";
+    }
+
     @GetMapping("/cache")
     @ResponseBody
     public List<Cache> fetchAllCaches(){
