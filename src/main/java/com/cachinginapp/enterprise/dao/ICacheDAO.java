@@ -8,4 +8,6 @@ public interface ICacheDAO {
     Cache save(Cache cache) throws Exception;
 
     List<Cache> fetchAll();
+
+    Cache fetchCacheById(int id);
 }
