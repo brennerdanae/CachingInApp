@@ -15,8 +15,6 @@
 	<description>Demo project for Spring Boot</description>
 	<properties>
 		<java.version>11</java.version>
-		<repackage.classifier/>
-		<spring-native.version>0.12.1</spring-native.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -26,11 +24,6 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.experimental</groupId>
-			<artifactId>spring-native</artifactId>
-			<version>${spring-native.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -80,21 +73,7 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
-				<configuration>
-					<excludes>
-						<exclude>
-							<groupId>org.projectlombok</groupId>
-							<artifactId>lombok</artifactId>
-						</exclude>
-					</excludes>
-					<classifier>${repackage.classifier}</classifier>
-					<image>
-						<builder>paketobuildpacks/builder:tiny</builder>
-						<env>
-							<BP_NATIVE_IMAGE>true</BP_NATIVE_IMAGE>
-						</env>
-					</image>
-				</configuration>
+				<version>${project.parent.version}</version>
 			</plugin>
 		</plugins>
 	</build>
