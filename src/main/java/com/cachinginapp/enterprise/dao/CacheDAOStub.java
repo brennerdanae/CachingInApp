@@ -21,4 +21,14 @@ public class CacheDAOStub implements ICacheDAO {
     public List<Cache> fetchAll() {
         return allCaches;
     }
+
+    @Override
+    public Cache fetchCacheById(int id) {
+        for (Cache cache: allCaches) {
+            if (cache.getCacheID() == id) {
+                return cache;
+            }
+        }
+        return null;
+    }
 }
