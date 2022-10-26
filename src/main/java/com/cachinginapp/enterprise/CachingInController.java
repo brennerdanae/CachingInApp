@@ -57,6 +57,7 @@ public class CachingInController {
     public String saveCache(Cache cache){
         try {
             cacheService.save(cache);
+            logger.info(String.format("Your caches have been saved."));
         } catch (Exception e) {
             e.printStackTrace();
             return "start";
@@ -137,6 +138,7 @@ public class CachingInController {
     public ResponseEntity deleteCache(@PathVariable("id") int id){
         try {
             //TODO: cacheService.delete(id);
+            logger.info(String.format("A cache has been deleted with and Id: %s", id));
             return new ResponseEntity(HttpStatus.OK);
         } catch (Exception e) {
             logger.log(Level.WARNING, "Unable to delete cache with ID: " + id + ", message: " + e.getMessage());
