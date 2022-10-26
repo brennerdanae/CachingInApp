@@ -12,6 +12,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * The controller for CachingInApp REST endpoints and web UI
@@ -25,6 +27,7 @@ import java.util.List;
 @Controller
 public class CachingInController {
 
+    Logger logger = Logger.getLogger(CachingInController.class.getName());
     @Autowired
     ICacheService cacheService;
 
@@ -63,7 +66,14 @@ public class CachingInController {
     @GetMapping("/cache")
     @ResponseBody
     public List<Cache> fetchAllCaches(){
-        return cacheService.fetchAll();
+        try{
+            return cacheService.fetchAll();
+        } catch (Exception e) {
+            logger.log(Level.WARNING, "No caches were fetched!");
+            throw new RuntimeException(e);
+        }
+
+
     }
 
     /**
@@ -79,10 +89,15 @@ public class CachingInController {
      */
     @GetMapping("/cache/{id}/")
     public ResponseEntity fetchCacheById(@PathVariable("id") int id){
-        Cache foundCache = cacheService.fetchCacheById(id);
-        HttpHeaders headers = new HttpHeaders();
-        headers.setContentType(MediaType.APPLICATION_JSON);
-        return new ResponseEntity(foundCache, headers, HttpStatus.OK);
+        try {
+            Cache foundCache = cacheService.fetchCacheById(id);
+            HttpHeaders headers = new HttpHeaders();
+            headers.setContentType(MediaType.APPLICATION_JSON);
+            return new ResponseEntity(foundCache, headers, HttpStatus.OK);
+        } catch (Exception e) {
+            logger.log(Level.WARNING, "Unable to fetch cache with ID: " + id + ", message: " + e.getMessage());
+            return new ResponseEntity(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
 
     /**
@@ -101,7 +116,7 @@ public class CachingInController {
         try {
             newCache = cacheService.save(cache);
         } catch (Exception e) {
-            //TODO add logging
+            logger.log(Level.WARNING, "Your cache was not created.");
         }
         return newCache;
 
@@ -120,8 +135,14 @@ public class CachingInController {
      */
     @DeleteMapping("/cache/{id}/")
     public ResponseEntity deleteCache(@PathVariable("id") int id){
+        try {
+            //TODO: cacheService.delete(id);
+            return new ResponseEntity(HttpStatus.OK);
+        } catch (Exception e) {
+            logger.log(Level.WARNING, "Unable to delete cache with ID: " + id + ", message: " + e.getMessage());
+            return new ResponseEntity(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
 
-        return new ResponseEntity(HttpStatus.OK);
     }
 
     /**
