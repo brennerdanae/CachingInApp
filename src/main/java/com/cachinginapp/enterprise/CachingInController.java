@@ -3,7 +3,9 @@ package com.cachinginapp.enterprise;
 import com.cachinginapp.enterprise.dto.Cache;
 import com.cachinginapp.enterprise.service.ICacheService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -24,12 +26,6 @@ public class CachingInController {
 
     @RequestMapping("/")
     public String index(Model model) {
-        Cache cache = new Cache();
-        cache.setCacheID(84);
-        cache.setDescription("Eden Park Cache");
-        cache.setLatitude("39.74");
-        cache.setLongitude("-84.51");
-        model.addAttribute(cache);
         return "start";
     }
 
@@ -55,9 +51,12 @@ public class CachingInController {
         return cacheService.fetchAll();
     }
 
-    @GetMapping("/cache/id/")
-    public ResponseEntity fetchCacheById(@PathVariable("id") String id){
-        return new ResponseEntity(HttpStatus.OK);
+    @GetMapping("/cache/{id}/")
+    public ResponseEntity fetchCacheById(@PathVariable("id") int id){
+        Cache foundCache = cacheService.fetchCacheById(id);
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.APPLICATION_JSON);
+        return new ResponseEntity(foundCache, headers, HttpStatus.OK);
     }
 
     @PostMapping(value="/cache", consumes="application/json", produces="application/json")
@@ -74,6 +73,7 @@ public class CachingInController {
 
     @DeleteMapping("/cache/id/")
     public ResponseEntity deleteCache(@PathVariable("id") String id){
+
         return new ResponseEntity(HttpStatus.OK);
     }
 
