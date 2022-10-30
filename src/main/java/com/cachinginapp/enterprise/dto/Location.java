@@ -8,6 +8,8 @@ public @Data class Location {
     private String state;
     @SerializedName("County")
     private String county;
+    @SerializedName("UserID")
+    private String userID;
     @SerializedName("City")
     private String city;
     @SerializedName("Zip-Code")

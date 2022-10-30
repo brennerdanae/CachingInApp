@@ -69,12 +69,12 @@ public class CachingInController {
             //TODO add logging
         }
         return newCache;
-
     }
 
     @DeleteMapping("/cache/id/")
     public ResponseEntity deleteCache(@PathVariable("id") String id){
         return new ResponseEntity(HttpStatus.OK);
+
     }
 
 
@@ -83,4 +83,5 @@ public class CachingInController {
 
         return new ResponseEntity(HttpStatus.OK);
     }
+
 }
