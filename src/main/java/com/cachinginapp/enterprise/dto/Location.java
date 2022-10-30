@@ -3,6 +3,9 @@ package com.cachinginapp.enterprise.dto;
 import com.google.gson.annotations.SerializedName;
 import lombok.Data;
 
+/*
+Location of user
+ */
 public @Data class Location {
     @SerializedName("State")
     private String state;
