@@ -12,9 +12,18 @@ public interface ICacheService {
      * @return the matching cache, or none if found.
      */
     Cache fetchCacheById(int cacheId);
-
+    /**
+     * Save a new cache
+     *
+     * @param cache to list.
+     * @return
+     */
     Cache save(Cache cache) throws Exception;
 
+    /**
+     * Return all caches.
+     * @return a collection of all caches.
+     */
     List<Cache> fetchAll();
 
 }

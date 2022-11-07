@@ -25,6 +25,8 @@ public class CacheServiceStub implements ICacheService {
         Cache cache = new Cache();
         cache.setDescription("Mountain Overlook");
         cache.setCacheID(420);
+        cache.setLatitude("35.3606");
+        cache.setLongitude("138.7274");
         return cache;
     }
 
