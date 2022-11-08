@@ -15,6 +15,13 @@
     </div>
     <form class="d-flex" role="search" action="#" th:action="@{/cachepoints}" method="GET">
       <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="searchTerm" id="searchTerm">
+      <datalist id="cache search">
+        <option value="Alcatraz"></option>
+        <option value="Cincinnati Artworks Mural Mystery"></option>
+        <option value="Shawnee Lookout Cache"></option>
+        <option value="Pop a Squat"></option>
+        <option value="King Arthur"></option>
+      </datalist>
       <button class="btn btn-outline-success" type="submit">Search</button>
     </form>
   </nav>

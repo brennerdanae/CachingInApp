@@ -29,9 +29,9 @@
 </head>
 <body>
 
-    <div th:replace="fragments/topnav :: navbar">
+<div th:replace="fragments/topnav :: navbar">
 
-    </div>
+</div>
 
 
 Geo-caching all over the world!
@@ -61,5 +61,6 @@ Geo-caching all over the world!
 
     <button name="submit" type="submit" value="0">Submit</button>
 </form>
+<img th:src="@{${'/photos/' + photo.fileName}}" alt="Photo upload confirmation"/>
 </body>
 </html>
