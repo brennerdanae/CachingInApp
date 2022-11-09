@@ -2,12 +2,14 @@ package com.cachinginapp.enterprise.dao;
 
 import com.cachinginapp.enterprise.dto.Cache;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 import java.util.List;
 
-@Repository("cacheDAO")
+@Repository
+@Profile("dev")
 public class CacheSQLDAO implements ICacheDAO {
 
     @Autowired
