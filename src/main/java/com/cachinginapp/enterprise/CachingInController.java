@@ -53,14 +53,14 @@ public class CachingInController {
      * Saves all caches
      * @return
      */
-    @RequestMapping("/saveCache")
+    @PostMapping("/saveCache")
     public String saveCache(Cache cache){
         try {
             cacheService.save(cache);
             logger.info(String.format("Your caches have been saved."));
         } catch (Exception e) {
             e.printStackTrace();
-            return "start";
+            return "error";
         }
         return "start";
     }
@@ -112,6 +112,7 @@ public class CachingInController {
      * @return the newly created cache object.
      */
     @PostMapping(value="/cache", consumes="application/json", produces="application/json")
+    @ResponseBody
     public Cache createCache(@RequestBody Cache cache) {
         Cache newCache = null;
         try {
