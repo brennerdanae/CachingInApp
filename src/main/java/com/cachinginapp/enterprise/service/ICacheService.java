@@ -12,6 +12,9 @@ public interface ICacheService {
      * @return the matching cache, or none if found.
      */
     Cache fetchCacheById(int cacheId);
+
+    void delete(int id) throws Exception;
+
     /**
      * Save a new cache
      *
