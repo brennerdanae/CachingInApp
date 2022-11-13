@@ -11,7 +11,7 @@ import java.util.List;
 @Profile("test")
 public class CacheDAOStub implements ICacheDAO {
 
-    List<Cache> allCaches = new ArrayList<Cache>();
+    List<Cache> allCaches = new ArrayList<>();
 
     @Override
     public Cache save(Cache cache) throws Exception {

@@ -22,8 +22,7 @@ public class CacheService implements ICacheService {
 
     @Override
     public Cache fetchCacheById(int id) {
-        Cache foundCache = cacheDAO.fetch(id);
-        return foundCache;
+        return cacheDAO.fetch(id);
     }
 
     @Override

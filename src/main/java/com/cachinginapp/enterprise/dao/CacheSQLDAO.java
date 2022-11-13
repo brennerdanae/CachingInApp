@@ -17,8 +17,7 @@ public class CacheSQLDAO implements ICacheDAO {
 
     @Override
     public Cache save(Cache cache) throws Exception {
-        Cache createdCache = cacheRepository.save(cache);
-        return createdCache;
+        return cacheRepository.save(cache);
     }
 
     @Override
