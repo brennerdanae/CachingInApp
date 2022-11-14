@@ -21,7 +21,7 @@ public class CacheService implements ICacheService {
     }
 
     @Override
-    @Cachable("cache")
+    @Cacheable("cache")
     public Cache fetchCacheById(int id) {
         return cacheDAO.fetch(id);
     }
@@ -31,7 +31,7 @@ public class CacheService implements ICacheService {
         cacheDAO.delete(id);
     }
     @Override
-    @Cachable("caches")
+    @Cacheable("caches")
     public Cache save(Cache cache) throws Exception{
         return cacheDAO.save(cache);
     }
