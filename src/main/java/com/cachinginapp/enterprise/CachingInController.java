@@ -1,6 +1,7 @@
 package com.cachinginapp.enterprise;
 
 import com.cachinginapp.enterprise.dto.Cache;
+import com.cachinginapp.enterprise.dto.Photo;
 import com.cachinginapp.enterprise.service.ICacheService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
@@ -51,21 +52,6 @@ public class CachingInController {
         return "map";
     }
 
-    /**
-     * Saves all caches
-     * @return
-     */
-    @PostMapping("/saveCache")
-    public String saveCache(Cache cache){
-        try {
-            cacheService.save(cache);
-            logger.info(String.format("Your caches have been saved."));
-        } catch (Exception e) {
-            e.printStackTrace();
-            return "error";
-        }
-        return "start";
-    }
     @GetMapping("/cache")
     @ResponseBody
     public List<Cache> fetchAllCaches(){
@@ -168,13 +154,29 @@ public class CachingInController {
         return new ResponseEntity(HttpStatus.OK);
     }
 
-    @PostMapping("/uploadImage")
-    public String uploadImage (@RequestParam("imageFile") MultipartFile imageFile, Model model) {
+    /**
+     * Saves all caches
+     * @return
+     */
+    @PostMapping("/saveCache")
+    public String saveCache(Cache cache, @RequestParam("imageFile") MultipartFile imageFile, Model model){
+
         String returnValue = "start";
 
         try {
-            cacheService.saveImage(imageFile);
-            Cache cache = new Cache();
+            cacheService.save(cache);
+            logger.info(String.format("Your caches have been saved."));
+        } catch (Exception e) {
+            e.printStackTrace();
+            return "error";
+        }
+
+        try {
+            Photo photo = new Photo();
+            photo.setFileName(imageFile.getOriginalFilename());
+            photo.setPath("/photo/");
+            photo.setCache(cache);
+            cacheService.saveImage(imageFile, photo);
             model.addAttribute("cache", cache);
             returnValue = "start";
         } catch (IOException e) {

@@ -1,6 +1,7 @@
 package com.cachinginapp.enterprise.service;
 
 import com.cachinginapp.enterprise.dto.Cache;
+import com.cachinginapp.enterprise.dto.Photo;
 import org.springframework.web.multipart.MultipartFile;
 
 
@@ -31,5 +32,5 @@ public interface ICacheService {
      */
     List<Cache> fetchAll();
 
-    void saveImage(MultipartFile imageFile) throws IOException;
+    void saveImage(MultipartFile imageFile, Photo photo) throws IOException;
 }

@@ -1,7 +1,9 @@
 package com.cachinginapp.enterprise.service;
 
 import com.cachinginapp.enterprise.dao.ICacheDAO;
+import com.cachinginapp.enterprise.dao.IPhotoDAO;
 import com.cachinginapp.enterprise.dto.Cache;
+import com.cachinginapp.enterprise.dto.Photo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
@@ -18,6 +20,9 @@ public class CacheService implements ICacheService {
 
     @Autowired
     private ICacheDAO cacheDAO;
+
+    @Autowired
+    private IPhotoDAO photoDAO;
 
     public CacheService() {}
 
@@ -48,11 +53,9 @@ public class CacheService implements ICacheService {
     }
 
     @Override
-    public void saveImage(MultipartFile imageFile) throws IOException {
-        String folder = "/photos/";
-        byte[] bytes = imageFile.getBytes();
-        Path path = Paths.get(folder + imageFile.getOriginalFilename());
-        Files.write(path, bytes);
+    public void saveImage(MultipartFile imageFile, Photo photo) throws IOException {
+        photoDAO.save(photo);
+        photoDAO.saveImage(imageFile);
     }
 
 }

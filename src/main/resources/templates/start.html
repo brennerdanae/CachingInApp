@@ -22,7 +22,7 @@
 Geo-caching all over the world!
 <p th:text="${cache}" />
 
-<form action="#" th:action="@{/saveCache}" th:object="${cache}" method="POST"><br />
+<form action="#" th:action="@{/saveCache}" th:object="${cache}" enctype="multipart/form-data" method="POST"><br />
 
     <div class="input-group input-group-sm mb-3">
         <span class="input-group-text" id="latitude">Latitude</span>
@@ -39,16 +39,10 @@ Geo-caching all over the world!
         <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
     </div>
 
-    <div class="input-group input-group-sm mb-3">
-        <span class="input-group-text" id="cacheID">Cache</span>
-        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
-    </div>
-
-    <button name="submit" type="submit" value="0">Submit</button>
-</form>
-<form method="post" enctype="multipart/form-data" action="/uploadImage">
     <input type="file" name="imageFile"/>
     <input type="submit" value="Upload"/>
+
+    <button name="submit" type="submit" value="0">Submit</button>
 </form>
 </body>
 </html>
