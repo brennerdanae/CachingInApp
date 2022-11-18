@@ -12,6 +12,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.ModelAndView;
 
 import java.io.IOException;
 import java.util.List;
@@ -159,30 +160,35 @@ public class CachingInController {
      * @return
      */
     @PostMapping("/saveCache")
-    public String saveCache(Cache cache, @RequestParam("imageFile") MultipartFile imageFile, Model model){
-
+    public ModelAndView saveCache(Cache cache, @RequestParam("imageFile") MultipartFile imageFile, Model model){
         String returnValue = "start";
+        ModelAndView modelAndView = new ModelAndView();
 
         try {
             cacheService.save(cache);
             logger.info(String.format("Your caches have been saved."));
         } catch (Exception e) {
             e.printStackTrace();
-            return "error";
+            modelAndView.setViewName("error");
+            return modelAndView;
         }
 
+        Photo photo = new Photo();
+
         try {
-            Photo photo = new Photo();
             photo.setFileName(imageFile.getOriginalFilename());
-            photo.setPath("/photo/");
             photo.setCache(cache);
             cacheService.saveImage(imageFile, photo);
             model.addAttribute("cache", cache);
-            returnValue = "start";
+            modelAndView.setViewName("success");
         } catch (IOException e) {
             e.printStackTrace();
-            returnValue = "error";
+            modelAndView.setViewName("error");
+            return modelAndView;
         }
-        return returnValue;
+
+        modelAndView.addObject("photo", photo);
+        modelAndView.addObject("cache", cache);
+        return modelAndView;
     }
 }

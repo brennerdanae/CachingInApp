@@ -55,7 +55,7 @@ public class CacheService implements ICacheService {
     @Override
     public void saveImage(MultipartFile imageFile, Photo photo) throws IOException {
         photoDAO.save(photo);
-        photoDAO.saveImage(imageFile);
+        photoDAO.saveImage(imageFile, photo);
     }
 
 }
