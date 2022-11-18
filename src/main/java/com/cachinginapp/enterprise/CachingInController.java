@@ -10,7 +10,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -162,7 +164,23 @@ public class CachingInController {
      */
     @GetMapping("/cachepoints")
     public ResponseEntity searchCaches(@RequestParam(value="searchTerm", required = false, defaultValue ="None") String searchTerm){
-        responseEntity.addObject("caches", caches);
+        ResponseEntity.AddObject("caches", caches);
         return new ResponseEntity(HttpStatus.OK);
+    }
+
+    @PostMapping("/uploadImage")
+    public String uploadImage (@RequestParam("imageFile") MultipartFile imageFile, Model model) {
+        String returnValue = "start";
+
+        try {
+            cacheService.saveImage(imageFile);
+            Cache cache = new Cache();
+            model.addAttribute("cache", cache);
+            returnValue = "start";
+        } catch (IOException e) {
+            e.printStackTrace();
+            returnValue = "error";
+        }
+        return returnValue;
     }
 }
