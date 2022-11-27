@@ -3,6 +3,7 @@ package com.cachinginapp.enterprise;
 import com.cachinginapp.enterprise.dto.Cache;
 import com.cachinginapp.enterprise.dto.Photo;
 import com.cachinginapp.enterprise.service.ICacheService;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -34,6 +35,8 @@ public class CachingInController {
     Logger logger = Logger.getLogger(CachingInController.class.getName());
     @Autowired
     ICacheService cacheService;
+
+    org.slf4j.Logger log = LoggerFactory.getLogger(this.getClass());
 
     /**
      * Handle the root (/) endpoint and return a start page.
@@ -126,11 +129,14 @@ public class CachingInController {
      */
     @DeleteMapping("/cache/{id}/")
     public ResponseEntity deleteCache(@PathVariable("id") int id){
+        log.debug("Entering the delete specimen endpoint");
         try {
             //TODO: cacheService.delete(id);
-            logger.info(String.format("A cache has been deleted with and Id: %s", id));
+            log.info("Cache with ID " +id + "was deleted");
+            log.info(String.format("A cache has been deleted with and Id: %s", id));
             return new ResponseEntity(HttpStatus.OK);
         } catch (Exception e) {
+            log.error("Unable to delete specimen with ID:" + id + ", message: " + e.getMessage(), e);
             logger.log(Level.WARNING, "Unable to delete cache with ID: " + id + ", message: " + e.getMessage());
             return new ResponseEntity(HttpStatus.INTERNAL_SERVER_ERROR);
         }
@@ -166,7 +172,7 @@ public class CachingInController {
 
         try {
             cacheService.save(cache);
-            logger.info(String.format("Your caches have been saved."));
+            log.info(String.format("Your caches have been saved."));
         } catch (Exception e) {
             e.printStackTrace();
             modelAndView.setViewName("error");
