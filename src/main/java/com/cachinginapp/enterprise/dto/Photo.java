@@ -1,6 +1,7 @@
 package com.cachinginapp.enterprise.dto;
 
 import lombok.Data;
+import lombok.ToString;
 
 import javax.persistence.*;
 
@@ -16,6 +17,7 @@ public @Data class Photo {
     private String fileName;
     private String comments;
 
+    @ToString.Exclude
     @ManyToOne
     @JoinColumn(name="cache_id")
     private Cache cache;
