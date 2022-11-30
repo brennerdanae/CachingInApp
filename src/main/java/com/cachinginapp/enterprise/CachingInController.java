@@ -157,7 +157,7 @@ public class CachingInController {
      */
     @GetMapping("/cachepoints")
     public ResponseEntity searchCaches(@RequestParam(value="searchTerm", required = false, defaultValue ="None") String searchTerm){
-        ResponseEntity createCache;
+        ResponseEntity.AddObject("caches", cache);
         return new ResponseEntity(HttpStatus.OK);
     }
 
