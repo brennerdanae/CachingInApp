@@ -1,0 +1,6 @@
+2022-12-01 14:35:08,447 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Starting EnterpriseApplication using Java 19 on PC201431N with PID 26192 (C:\Users\mbrenner\Desktop\Purse\UC\Enterprise App Dev\enterprise\enterprise\target\classes started by mbrenner in C:\Users\mbrenner\Desktop\Purse\UC\Enterprise App Dev\enterprise\enterprise)
+2022-12-01 14:35:08,448 DEBUG org.springframework.boot.StartupInfoLogger [restartedMain] Running with Spring Boot v2.7.4, Spring v5.3.23
+2022-12-01 14:35:08,450 INFO org.springframework.boot.SpringApplication [restartedMain] No active profile set, falling back to 1 default profile: "default"
+2022-12-01 14:40:09,069 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Starting EnterpriseApplication using Java 19 on PC201431N with PID 11904 (C:\Users\mbrenner\Desktop\Purse\UC\Enterprise App Dev\enterprise\enterprise\target\classes started by mbrenner in C:\Users\mbrenner\Desktop\Purse\UC\Enterprise App Dev\enterprise\enterprise)
+2022-12-01 14:40:09,072 DEBUG org.springframework.boot.StartupInfoLogger [restartedMain] Running with Spring Boot v2.7.4, Spring v5.3.23
+2022-12-01 14:40:09,077 INFO org.springframework.boot.SpringApplication [restartedMain] No active profile set, falling back to 1 default profile: "default"
