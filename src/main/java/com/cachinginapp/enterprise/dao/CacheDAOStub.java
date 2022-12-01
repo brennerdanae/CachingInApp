@@ -33,4 +33,9 @@ public class CacheDAOStub implements ICacheDAO {
     public void delete(int id) {
 
     }
+
+    @Override
+    public List<Cache> fetchPlants(String searchTerm) {
+        return null;
+    }
 }

@@ -63,4 +63,9 @@ public class CacheService implements ICacheService {
         photoDAO.saveImage(imageFile, photo);
     }
 
+    @Override
+    public List<Cache> fetchCaches(String searchTerm) {
+        return cacheDAO.fetchPlants(searchTerm);
+    }
+
 }

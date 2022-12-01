@@ -40,4 +40,9 @@ public class CacheSQLDAO implements ICacheDAO {
     public void delete(int id){
         cacheRepository.deleteById(id);
     }
+
+    @Override
+    public List<Cache> fetchPlants(String searchTerm) {
+        return null;
+    }
 }

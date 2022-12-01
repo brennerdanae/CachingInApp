@@ -155,10 +155,12 @@ public class CachingInController {
      * @param searchTerm TODO: What is this parameter?
      * @return TODO: What does this return?
      */
-    @GetMapping("/cachepoints")
+    @GetMapping("/cachepoints/{cacheId}")
     public ResponseEntity searchCaches(@RequestParam(value="searchTerm", required = false, defaultValue ="None") String searchTerm){
-        ResponseEntity.AddObject("caches", cache);
-        return new ResponseEntity(HttpStatus.OK);
+        List<Cache> caches = cacheService.fetchCaches(searchTerm);
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.APPLICATION_JSON);
+        return new ResponseEntity(caches, headers, HttpStatus.OK);
     }
 
     /**

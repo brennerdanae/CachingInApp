@@ -12,4 +12,6 @@ public interface ICacheDAO {
     Cache fetch(int id);
 
     void delete(int id);
+
+    List<Cache> fetchPlants(String searchTerm);
 }

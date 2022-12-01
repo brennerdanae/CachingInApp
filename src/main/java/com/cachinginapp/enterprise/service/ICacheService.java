@@ -33,4 +33,6 @@ public interface ICacheService {
     List<Cache> fetchAll();
 
     void saveImage(MultipartFile imageFile, Photo photo) throws IOException;
+
+    List<Cache> fetchCaches(String searchTerm);
 }
