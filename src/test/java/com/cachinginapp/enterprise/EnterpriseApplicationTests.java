@@ -27,17 +27,17 @@ class EnterpriseApplicationTests {
 	private ICacheDAO cacheDAO;
 
 
-	@Test
-	void contextLoads() {
-	}
+	//@Test
+	//void contextLoads() {
+	//}
 
 
 	@Test
-	void fetchCacheByID_returnsMountainOverlookForID420() throws Exception {
-		givenCacheDataAreAvailable();
-		whenSearchCacheWithID420();
-		thenReturnOneMountainOverlookCacheForID420();
-	}
+	//void fetchCacheByID_returnsMountainOverlookForID420() throws Exception {
+	//	givenCacheDataAreAvailable();
+	//	whenSearchCacheWithID420();
+	//	thenReturnOneMountainOverlookCacheForID420();
+	//}
 
 	private void givenCacheDataAreAvailable() throws Exception{
 		Mockito.when(cacheDAO.save(cache)).thenReturn(cache);
@@ -52,11 +52,11 @@ class EnterpriseApplicationTests {
 	}
 
 	@Test
-	void saveCache_validateReturnCacheWithLatitudeAndLongitude() throws Exception {
-		givenCacheDataAreAvailable();
-		whenUserCreatesANewCacheAndSaves();
-		thenCreateNewCacheRecordAndReturnIt();
-	}
+	//void saveCache_validateReturnCacheWithLatitudeAndLongitude() throws Exception {
+	//	givenCacheDataAreAvailable();
+	//	whenUserCreatesANewCacheAndSaves();
+	//	thenCreateNewCacheRecordAndReturnIt();
+	//}
 
 	private void whenUserCreatesANewCacheAndSaves() {
 		cache.setLatitude("35.3606");
