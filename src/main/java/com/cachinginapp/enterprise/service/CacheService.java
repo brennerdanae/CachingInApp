@@ -5,6 +5,7 @@ import com.cachinginapp.enterprise.dao.IPhotoDAO;
 import com.cachinginapp.enterprise.dto.Cache;
 import com.cachinginapp.enterprise.dto.Photo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
@@ -32,12 +33,14 @@ public class CacheService implements ICacheService {
     }
 
     @Override
-    @Cacheable("cache")
+    @Cacheable(value="cache", key="#id")
     public Cache fetchCacheById(int id) {
-        return cacheDAO.fetch(id);
+        Cache foundCache = cacheDAO.fetch(id);
+        return foundCache;
     }
 
     @Override
+    @CacheEvict(value="cache", key="#id")
     public void delete(int id) throws Exception {
         cacheDAO.delete(id);
     }
@@ -48,7 +51,9 @@ public class CacheService implements ICacheService {
     }
 
     @Override
+    @Cacheable("caches")
     public List<Cache> fetchAll() {
+
         return cacheDAO.fetchAll();
     }
 
